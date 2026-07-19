@@ -1,0 +1,111 @@
+# Configuration for Multimodal E-Commerce Product Analyzer
+
+# Model Configuration
+model:
+  type: "blip"  # Options: "clip", "blip", "ensemble"
+  clip_variant: "ViT-B/32"
+  blip_variant: "base"  # Options: "base", "large"
+  device: "cuda"  # Options: "cuda", "cpu"
+  precision: "fp32"  # Options: "fp32", "fp16"
+
+# Image Processing
+image:
+  target_size: 384
+  format: ["jpg", "jpeg", "png", "webp"]
+  quality: 95
+  normalize: true
+  augmentation: false
+
+# Category Configuration
+categories:
+  predefined:
+    - "Electronics"
+    - "Fashion & Apparel"
+    - "Home & Garden"
+    - "Sports & Outdoors"
+    - "Books & Media"
+    - "Toys & Games"
+    - "Health & Beauty"
+    - "Automotive"
+    - "Tools & Hardware"
+    - "Food & Grocery"
+  num_top_predictions: 3
+  confidence_threshold: 0.3
+
+# Description Generation
+description:
+  max_length: 200
+  min_length: 50
+  num_beams: 4
+  temperature: 0.7
+  top_p: 0.9
+  include_seo_keywords: true
+  target_audience: "retail_customers"
+
+# Evaluation Settings
+evaluation:
+  metrics:
+    - "top1_accuracy"
+    - "top3_accuracy"
+    - "bleu_score"
+    - "rouge_score"
+    - "semantic_similarity"
+  confidence_calibration: true
+  compute_embeddings: true
+
+# API Server Configuration
+api:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 4
+  log_level: "info"
+  max_request_size: 10  # MB
+  timeout: 30  # seconds
+
+# Data Paths
+data:
+  sample_images_dir: "./data/sample_images"
+  categories_file: "./data/categories.json"
+  test_products_file: "./data/test_products.csv"
+  output_dir: "./outputs"
+  cache_dir: "./cache"
+
+# Logging
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "./logs/app.log"
+  console: true
+
+# Performance & Optimization
+optimization:
+  batch_size: 32
+  num_workers: 4
+  pin_memory: true
+  use_cache: true
+  cache_ttl: 3600  # seconds
+  quantization: false
+
+# Business Metrics
+business:
+  cost_per_classification: 0.01  # USD
+  target_accuracy: 0.85
+  target_processing_time: 2.0  # seconds
+  target_satisfaction_score: 4.0  # out of 5
+
+# Real-world Company Benchmarks
+benchmarks:
+  amazon:
+    accuracy: 0.92
+    processing_time: 1.5
+    cost_per_item: 0.005
+  
+  flipkart:
+    accuracy: 0.90
+    processing_time: 2.0
+    cost_per_item: 0.008
+  
+  ebay:
+    accuracy: 0.88
+    processing_time: 1.8
+    cost_per_item: 0.006
