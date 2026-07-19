@@ -1,0 +1,6 @@
+image_path,category,description
+data/sample_images/laptop.jpg,Electronics,High-performance laptop with 16GB RAM
+data/sample_images/shirt.jpg,Fashion & Apparel,Cotton t-shirt in multiple colors
+data/sample_images/plant.jpg,Home & Garden,Indoor potted plant
+data/sample_images/book.jpg,Books & Media,Science fiction novel
+data/sample_images/headphones.jpg,Electronics,Wireless noise-canceling headphones
